@@ -1,0 +1,68 @@
+//import variables
+@import '../../style/variables';
+
+.Header {
+  padding: 0 95px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+
+
+  &__logo-container {
+    display: flex;
+    grid-gap: 5px;
+    h1 {
+      color: $primary-color;
+      margin-top: 2px;
+    }
+  }
+
+  &__routes-container {
+    :first-child {
+      margin-right: 50px;
+    }
+
+  }
+
+  &__auth-routes-container {
+
+  }
+  &__auth-button {
+    color: $primary-color;
+    border-radius: 10px;
+    &_login {
+      padding: 6px 32px;
+      border: 3px solid $primary-color;
+      margin-right: 25px;
+      &:hover, &:focus {
+        //smooth transition
+        border-color: #DE5342;
+        color: #DE5342;
+      }
+    }
+    &_register {
+      padding: 9px 32px;
+      background: $primary-color;
+      color: $white-color;
+        &:hover, &:focus {
+            background: #DE5342;
+        }
+    }
+  }
+
+  &__link {
+    color: $pale-color;
+  }
+  .active {
+    color: $primary-color;
+    //make red underline
+    text-decoration: underline;
+  }
+
+  &__link, &__auth-button {
+    font-weight: 600;
+    font-size: 22px;
+  }
+}

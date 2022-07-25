@@ -1,0 +1,14 @@
+.IndexPage {
+
+  &_black {
+    background-color: #000;
+  }
+
+  &__image {
+    width: 500px;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
