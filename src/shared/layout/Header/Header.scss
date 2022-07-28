@@ -1,14 +1,16 @@
 //import variables
-@import '../../style/variables';
+@import '../../../style/utils/variables';
 
 .Header {
   padding: 0 95px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 80px;
 
+  &__content-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
 
   &__logo-container {
     display: flex;
@@ -55,14 +57,14 @@
   &__link {
     color: $pale-color;
   }
-  .active {
-    color: $primary-color;
-    //make red underline
-    text-decoration: underline;
-  }
 
   &__link, &__auth-button {
     font-weight: 600;
     font-size: 22px;
+  }
+
+  .active {
+    color: $primary-color;
+    text-decoration: underline;
   }
 }

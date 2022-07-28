@@ -10,7 +10,6 @@ export interface IRouteProps {
 
 export const ROUTE_ROOT = "/";
 export const ROUTE_NOT_FOUND = "*";
-export const ROUTE_HOME = "home";
 export const ROUTE_SUBSCRIPTION = "subscription";
 
 export const publicRoutes: IRouteProps[] = [
@@ -21,10 +20,6 @@ export const publicRoutes: IRouteProps[] = [
   {
     path: ROUTE_NOT_FOUND,
     element: <NotFoundPage />,
-  },
-  {
-    path: ROUTE_HOME,
-    element: <IndexPage />,
   },
   {
     path: ROUTE_SUBSCRIPTION,

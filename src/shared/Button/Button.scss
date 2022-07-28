@@ -1,0 +1,48 @@
+@import "src/style/utils/variables";
+
+.Button {
+  $root: &;
+
+  font-size: 24px;
+  color: $white-color;
+  font-weight: 600;
+  padding: 8px 32px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+
+  &_primary {
+    background: $primary-color;
+    color: $white-color;
+    &:hover, &:focus {
+      background: #DE5342;
+      color: $white-color;
+    }
+
+    &#{$root}_outline {
+      color: $primary-color;
+      background: transparent;
+      padding: 6px 32px;
+      margin-right: 25px;
+
+      border: 3px solid $primary-color;
+      &:hover, &:focus {
+        background: unset;
+        border-color: #DE5342;
+        color: #DE5342;
+      }
+    }
+    &#{$root}_gradient {
+      font-size: 28px;
+      background: $button-gradient;
+      box-shadow: 0 7px 150px rgba(18, 18, 18, 0.15);
+      padding: 20px 135px;
+
+      &:hover, &:focus {
+        background: linear-gradient(92deg, #DC5646 -4%, #D58942 107%);
+        color: $white-color;
+      }
+    }
+  }
+
+
+}

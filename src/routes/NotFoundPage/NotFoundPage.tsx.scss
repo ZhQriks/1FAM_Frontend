@@ -1,3 +1,10 @@
 .NotFoundPage {
-
+  &__headline {
+    text-align: center;
+    font-size: 80px;
+    margin: 150px 0 500px 0;
+    background: linear-gradient(90.62deg, rgba(246, 74, 53, 0.7) 4.12%, rgba(247, 137, 54, 0.8) 101.68%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

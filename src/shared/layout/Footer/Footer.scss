@@ -1,0 +1,16 @@
+//import variables
+@import '../../../style/utils/variables';
+
+.Footer  {
+  left: 0;
+  bottom: 0;
+  padding: 0 95px;
+  color: $primary-color;
+
+  &__content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    height: 80px;
+  }
+}

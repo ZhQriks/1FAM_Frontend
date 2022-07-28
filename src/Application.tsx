@@ -1,12 +1,11 @@
 import * as React from "react";
-import { useCallback } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "./shared/Layout";
+import { useMemo } from "react";
+import { Route, Routes } from "react-router-dom";
 import { IRouteProps, publicRoutes as routes } from "./routes";
-import Header from "./shared/Header";
+import Layout from "./shared/layout/Layout";
 
 export default function Application() {
-  const getAllRoutes = useCallback(
+  const getAllRoutes = useMemo(
     () => {
       const getRoute = (route: IRouteProps) => (
         <Route key={route.path} path={route.path} element={route.element}>
@@ -14,20 +13,11 @@ export default function Application() {
         </Route>
       );
 
-      return (
-        <>
-          <Header />
-          <Routes>{routes.map((route) => getRoute(route))}</Routes>
-        </>
-      );
+      return <Routes>{routes.map((route) => getRoute(route))}</Routes>;
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [routes]
   );
 
-  return (
-    <Layout>
-      <BrowserRouter>{getAllRoutes()}</BrowserRouter>
-    </Layout>
-  );
+  return <Layout>{getAllRoutes}</Layout>;
 }
