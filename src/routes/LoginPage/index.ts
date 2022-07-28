@@ -1,3 +1,3 @@
-import IndexPage from './IndexPage';
+import IndexPage from "./LoginPage";
 
 export default IndexPage;

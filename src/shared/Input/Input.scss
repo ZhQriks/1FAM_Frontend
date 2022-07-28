@@ -1,0 +1,15 @@
+@import "src/style/utils/variables";
+
+.Input {
+  $root: &;
+
+  font-size: 24px;
+  color: #697178;
+  font-weight: 600;
+  padding: 8px 32px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+
+
+
+}

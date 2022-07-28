@@ -6,6 +6,7 @@ import {
   ROUTE_ROOT,
   ROUTE_NOT_FOUND,
   ROUTE_SUBSCRIPTION,
+  ROUTE_LOGIN,
 } from "../../../routes";
 import { useSelector } from "../../../hooks/useSelector";
 import ContentContainer from "../ContentContainer";
@@ -36,7 +37,7 @@ export default function Header() {
           <NavLink to={ROUTE_NOT_FOUND}>Profile</NavLink>
         ) : (
           <div className={bemElement("auth-routes-container")}>
-            <Link to={ROUTE_NOT_FOUND}>
+            <Link to={ROUTE_LOGIN}>
               <Button label="Login" outline />
             </Link>
             <Link to={ROUTE_NOT_FOUND}>
