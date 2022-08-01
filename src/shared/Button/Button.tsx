@@ -12,6 +12,8 @@ interface IButtonProps {
   gradient: boolean;
   customSize?: true;
   size?: string;
+  customHeight?: true;
+  height?: string;
 }
 
 function Button(props: IButtonProps) {
@@ -20,6 +22,7 @@ function Button(props: IButtonProps) {
     <button
       style={{
         width: props.customSize ? props.size : "",
+        height: props.customHeight ? props.height : "",
       }}
       className={bem(
         bemBlock({
