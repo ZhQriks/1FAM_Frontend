@@ -12,18 +12,17 @@ import Button from "../../shared/Button";
 import { useSelector } from "../../hooks/useSelector";
 
 export default function LoginPage() {
-  let user = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   function formSubmit(e: any) {
-    console.log("works");
     e.preventDefault();
     dispatch(login(email, password))
-      .then(() => {
+      .then((res) => {
+        alert(res);
         navigate("/");
       })
       .catch((e: any) => {
-        console.log(e);
+        alert(e);
       });
   }
   const [email, setEmail] = useState("");
@@ -57,7 +56,7 @@ export default function LoginPage() {
               />
               <br />
               <Button
-                label={"Create"}
+                label={"Login"}
                 customSize={true}
                 size={"100%"}
                 onClick={() => formSubmit}

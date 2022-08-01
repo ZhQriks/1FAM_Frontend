@@ -1,0 +1,11 @@
+@import '../../style/utils/variables';
+
+.SubscriptionsPage {
+  &__content-container {
+    width: 85%;
+    background: #F7F8FA;
+    border-radius: 50px;
+    padding: 40px 110px;
+    margin-top: 70px;
+  }
+}

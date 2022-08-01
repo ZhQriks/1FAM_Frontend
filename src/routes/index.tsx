@@ -2,6 +2,8 @@ import * as React from "react";
 import IndexPage from "./IndexPage";
 import LoginPage from "./LoginPage";
 import NotFoundPage from "./NotFoundPage";
+import RegisterPage from "./RegisterPage";
+import SubscriptionsPage from "./SubscriptionsPage/SubscriptionsPage";
 
 export interface IRouteProps {
   path: string;
@@ -13,6 +15,7 @@ export const ROUTE_ROOT = "/";
 export const ROUTE_NOT_FOUND = "*";
 export const ROUTE_SUBSCRIPTION = "subscription";
 export const ROUTE_LOGIN = "login";
+export const ROUTE_REGISTER = "register";
 
 export const publicRoutes: IRouteProps[] = [
   {
@@ -25,10 +28,14 @@ export const publicRoutes: IRouteProps[] = [
   },
   {
     path: ROUTE_SUBSCRIPTION,
-    element: <NotFoundPage />,
+    element: <SubscriptionsPage />,
   },
   {
     path: ROUTE_LOGIN,
     element: <LoginPage />,
+  },
+  {
+    path: ROUTE_REGISTER,
+    element: <RegisterPage />,
   },
 ];

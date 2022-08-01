@@ -8,11 +8,14 @@ import ContentContainer from "../../shared/layout/ContentContainer";
 import SectionContainer from "../../shared/layout/SectionContainer";
 import Button from "../../shared/Button";
 import Subscription from "../../shared/Subscription";
+import { userDecoded } from "../../api/functions";
 
 export default function IndexPage() {
   const { bemBlock, bemElement } = useBem("IndexPage");
-  let user = useSelector((state) => state.auth);
-  console.log(user);
+  const isAuthorizedUser = useSelector((state) => state.auth.isLoggedIn);
+  if (isAuthorizedUser) {
+    let user = useSelector((state) => state.auth.user);
+  }
   return (
     <SectionContainer className={bemBlock()}>
       <ContentContainer className={bemElement("content-container")}>

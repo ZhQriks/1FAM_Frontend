@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useBem from "../../../hooks/useBem";
 import { Link, NavLink } from "react-router-dom";
 import Button from "../../Button";
@@ -7,16 +7,39 @@ import {
   ROUTE_NOT_FOUND,
   ROUTE_SUBSCRIPTION,
   ROUTE_LOGIN,
+  ROUTE_REGISTER,
 } from "../../../routes";
 import { useSelector } from "../../../hooks/useSelector";
 import ContentContainer from "../ContentContainer";
 
 import "./Header.scss";
+import { logout } from "../../../redux/auth/actions";
+import { userDecoded } from "../../../api/functions";
+import UserService from "../../../services/user.service";
+import authHeader from "../../../services/auth-header";
 
 export default function Header() {
+  const [userBalance, setUserBalance] = React.useState(0);
+  const isAuthorizedUser = useSelector((state) => state.auth.isLoggedIn);
+
+  useEffect(() => {
+    if (isAuthorizedUser) {
+      try {
+        UserService.getUser().then((res) => {
+          setUserBalance(res.data.balance);
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }, []);
+
   const { bemBlock, bemElement } = useBem("Header");
 
-  const isAuthorizedUser = useSelector((state) => state.auth.isAuth);
+  function userLogout() {
+    localStorage.removeItem("user");
+    window.location.reload();
+  }
 
   return (
     <header className={bemBlock()}>
@@ -34,13 +57,25 @@ export default function Header() {
           </NavLink>
         </div>
         {isAuthorizedUser ? (
-          <NavLink to={ROUTE_NOT_FOUND}>Profile</NavLink>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <h3>{userBalance}</h3>
+            <NavLink to={ROUTE_NOT_FOUND}>
+              <div>
+                <img
+                  src="/images/pfp.png"
+                  alt="profile"
+                  className={bemElement("pfp")}
+                />
+              </div>
+            </NavLink>
+            <a onClick={() => userLogout()}>Logout</a>
+          </div>
         ) : (
           <div className={bemElement("auth-routes-container")}>
             <Link to={ROUTE_LOGIN}>
               <Button label="Login" outline />
             </Link>
-            <Link to={ROUTE_NOT_FOUND}>
+            <Link to={ROUTE_REGISTER}>
               <Button label="Register" />
             </Link>
           </div>

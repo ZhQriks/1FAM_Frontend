@@ -19,30 +19,14 @@ export const clearMessage = () => ({
 
 export const register =
   (
-    username: string,
-    password: string,
-    firstName: string,
-    birthday: string,
-    image: string,
-    skinTypeId: number,
-    locationId: number,
+    name: string,
+    surname: string,
+    age: number,
     email: string,
-    phoneNumber: string,
-    isCosmeticBagAvailable: boolean
+    password: string
   ) =>
   (dispatch: any) => {
-    return AuthService.register(
-      username,
-      password,
-      firstName,
-      birthday,
-      image,
-      skinTypeId,
-      locationId,
-      email,
-      phoneNumber,
-      isCosmeticBagAvailable
-    ).then(
+    return AuthService.register(name, surname, age, email, password).then(
       (response) => {
         dispatch({
           type: REGISTER_SUCCESS,

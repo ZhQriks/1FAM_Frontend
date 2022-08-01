@@ -6,7 +6,12 @@ class UserService {
   getTest() {
     return axios.get(APP_BACKEND_URL + "/test");
   }
-  getUser() {}
+  getUser() {
+    return axios.get(APP_BACKEND_URL + "api/user", {
+      // @ts-ignore
+      headers: authHeader(),
+    });
+  }
 
   getCurrentUser(id: number) {
     // @ts-ignore

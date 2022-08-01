@@ -16,28 +16,18 @@ class AuthService {
     localStorage.removeItem("user");
   }
   register(
-    username: string,
-    password: string,
-    firstName: string,
-    birthday: string,
-    image: string,
-    skinTypeId: number,
-    locationId: number,
+    name: string,
+    surname: string,
+    age: number,
     email: string,
-    phoneNumber: string,
-    isCosmeticBagAvailable: boolean
+    password: string
   ) {
     return axios.post(APP_BACKEND_URL + "api/register", {
-      username,
-      password,
-      firstName,
-      birthday,
-      image,
-      skinTypeId,
-      locationId,
+      name,
+      surname,
+      age,
       email,
-      phoneNumber,
-      isCosmeticBagAvailable,
+      password,
     });
   }
 }
