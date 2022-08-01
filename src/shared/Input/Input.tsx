@@ -4,25 +4,31 @@ import useBem from "../../hooks/useBem";
 import "./Input.scss";
 
 interface IInputProps {
-  label: string;
+  placeholder: string;
   className: string;
-  onClick?: () => void;
+  onChange?: (e: any) => void;
+  name: string;
+  value: any;
+  type: string;
 }
 
 function Input(props: IInputProps) {
   const { bem, bemBlock } = useBem("Input");
   return (
-    <button
+    <input
       className={bem(bemBlock({}), props.className)}
-      onClick={props.onClick}
-    >
-      {props.label}
-    </button>
+      placeholder={props.placeholder}
+      onChange={props.onChange}
+      name={props.name}
+      value={props.value}
+      type={props.type}
+    />
   );
 }
 
 Input.defaultProps = {
   className: "",
+  type: "text",
 };
 
 export default Input;

@@ -2,11 +2,35 @@
 
 .LoginPage {
   &__content-container {
+    width: 100%;
   }
   &__form-container {
    //center div in the middle of the screen
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  input {
+    border: 1px solid #697178;
+  }
+  &__form-container {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+      margin-bottom: 25px;
+    }
+    p {
+      color: $pale-color;
+      font-weight: 600;
+    }
+    Input {
+      margin-bottom: 8px;
+    }
+    Button {
+      margin-top: 15px;
+    }
   }
 }

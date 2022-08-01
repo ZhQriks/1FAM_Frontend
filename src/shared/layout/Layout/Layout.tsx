@@ -17,7 +17,6 @@ export default function Layout(props: ILayoutProps) {
     <div className={bemBlock()}>
       <Header />
       {props.children}
-      <Footer />
     </div>
   );
 }

@@ -11,7 +11,8 @@ import Subscription from "../../shared/Subscription";
 
 export default function IndexPage() {
   const { bemBlock, bemElement } = useBem("IndexPage");
-
+  let user = useSelector((state) => state.auth);
+  console.log(user);
   return (
     <SectionContainer className={bemBlock()}>
       <ContentContainer className={bemElement("content-container")}>

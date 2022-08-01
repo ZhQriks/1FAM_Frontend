@@ -10,12 +10,17 @@ interface IButtonProps {
   className: string;
   onClick?: () => void;
   gradient: boolean;
+  customSize?: true;
+  size?: string;
 }
 
 function Button(props: IButtonProps) {
   const { bem, bemBlock } = useBem("Button");
   return (
     <button
+      style={{
+        width: props.customSize ? props.size : "",
+      }}
       className={bem(
         bemBlock({
           [props.color]: true,
