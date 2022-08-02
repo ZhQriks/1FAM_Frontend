@@ -18,7 +18,7 @@ export default function LoginPage() {
     e.preventDefault();
     dispatch(login(email, password))
       .then((res) => {
-        alert(res);
+        alert("Success");
         navigate("/");
       })
       .catch((e: any) => {

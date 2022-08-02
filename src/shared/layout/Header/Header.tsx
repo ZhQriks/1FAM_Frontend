@@ -8,6 +8,7 @@ import {
   ROUTE_SUBSCRIPTION,
   ROUTE_LOGIN,
   ROUTE_REGISTER,
+  ROUTE_PROFILE,
 } from "../../../routes";
 import { useSelector } from "../../../hooks/useSelector";
 import ContentContainer from "../ContentContainer";
@@ -32,7 +33,7 @@ export default function Header() {
         console.log(e);
       }
     }
-  }, []);
+  }, [isAuthorizedUser]);
 
   const { bemBlock, bemElement } = useBem("Header");
 
@@ -52,14 +53,19 @@ export default function Header() {
           <NavLink className={bemElement("link")} to={ROUTE_ROOT}>
             Home
           </NavLink>
-          <NavLink className={bemElement("link")} to={ROUTE_SUBSCRIPTION}>
-            Subscriptions
-          </NavLink>
+          {isAuthorizedUser && (
+            <NavLink className={bemElement("link")} to={ROUTE_SUBSCRIPTION}>
+              Subscriptions
+            </NavLink>
+          )}
         </div>
         {isAuthorizedUser ? (
           <div style={{ display: "flex", alignItems: "center" }}>
-            <h3>{userBalance}</h3>
-            <NavLink to={ROUTE_NOT_FOUND}>
+            <h3>
+              {Math.round(userBalance)}
+              <span>₸</span>
+            </h3>
+            <NavLink to={ROUTE_PROFILE}>
               <div>
                 <img
                   src="/images/pfp.png"

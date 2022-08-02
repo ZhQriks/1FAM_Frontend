@@ -47,4 +47,12 @@
     display: flex;
     margin-bottom: 50px;
   }
+  &__subscription-room {
+    :last-child{
+        margin-bottom: 130px;
+    }
+  }
+  &__rooms-container {
+    margin-bottom: 50px;
+  }
 }

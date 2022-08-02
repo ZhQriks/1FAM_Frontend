@@ -7,10 +7,9 @@ import "./SubscriptionsPage.scss";
 import ContentContainer from "../../shared/layout/ContentContainer";
 import SectionContainer from "../../shared/layout/SectionContainer";
 import Button from "../../shared/Button";
-import Subscription from "../../shared/Subscription";
-import { userDecoded } from "../../api/functions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SubscriptionRoom from "../../shared/SubscriptionRoom/SubscriptionRoom";
+import RoomService from "../../services/room.service";
 
 export default function SubscriptionsPage() {
   const [subscriptionType, setSubscriptionType] = useState(1);
@@ -19,6 +18,39 @@ export default function SubscriptionsPage() {
   if (isAuthorizedUser) {
     let user = useSelector((state) => state.auth.user);
   }
+  function fetchRooms() {
+    if (isAuthorizedUser) {
+      RoomService.getRooms()
+        .then((res: any) => {
+          setRooms(res.data);
+        })
+        .catch((err: any) => {
+          console.log(err);
+        });
+    }
+  }
+  const [rooms, setRooms] = useState([]);
+  useEffect(() => {
+    fetchRooms();
+  }, []);
+
+  function joinRoom(_id: string, name: string) {
+    if (confirm(`Are you sure joining ${name} room?`)) {
+      // Save it!
+      RoomService.joinRoom(_id)
+        .then((res: any) => {
+          //make alert to confirm room join
+          alert(res.data);
+          console.log(res.data);
+          fetchRooms();
+        })
+        .catch((err: any) => {
+          console.log(err);
+        });
+    } else {
+    }
+  }
+
   return (
     <SectionContainer className={bemBlock()}>
       <ContentContainer className={bemElement("content-container")}>
@@ -59,13 +91,20 @@ export default function SubscriptionsPage() {
           <Button label={"Running"} outline customHeight height={"50px"} />
           <Button label={"Finished"} outline customHeight height={"50px"} />
         </div>
-        <div>
-          <SubscriptionRoom
-            label={"Netflix"}
-            price={50}
-            description={"dsdasd"}
-            usersMax={6}
-          />
+        <div className={bemElement("rooms-container")}>
+          {rooms.map((room: any) => {
+            return (
+              <SubscriptionRoom
+                users={room.users.length}
+                label={room.name}
+                price={Math.round(room.price / room.maxUsers)}
+                description={room.description}
+                maxUsers={room.maxUsers}
+                onClick={() => joinRoom(room._id, room.name)}
+                className={bemElement("subscription-room")}
+              />
+            );
+          })}
         </div>
       </ContentContainer>
     </SectionContainer>

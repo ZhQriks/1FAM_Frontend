@@ -12,20 +12,23 @@ class UserService {
       headers: authHeader(),
     });
   }
-
-  getCurrentUser(id: number) {
-    // @ts-ignore
-    return axios.get(APP_BACKEND_URL + `api/user/${id}`);
+  resplenishUser(sum: number) {
+    return axios.post(
+      APP_BACKEND_URL + "qiwi/bill",
+      {
+        amount: sum,
+      },
+      {
+        // @ts-ignore
+        headers: authHeader(),
+      }
+    );
   }
-
-  getModeratorBoard() {
-    // @ts-ignore
-    return axios.get(APP_BACKEND_URL + "mod", { headers: authHeader() });
-  }
-
-  getAdminBoard() {
-    // @ts-ignore
-    return axios.get(APP_BACKEND_URL + "admin", { headers: authHeader() });
+  updateBalance() {
+    return axios.get(APP_BACKEND_URL + "qiwi/bill/info", {
+      // @ts-ignore
+      headers: authHeader(),
+    });
   }
 }
 

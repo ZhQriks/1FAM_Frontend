@@ -2,7 +2,13 @@
 
 .SubscriptionRoom {
   $root: &;
-
+  :first-child {
+    margin:0;
+  }
+  :last-child {
+    margin-bottom: 130px;
+  }
+  margin-bottom: 20px;
 
   &_primary {
     padding: 20px 25px;

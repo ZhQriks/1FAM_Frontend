@@ -9,9 +9,10 @@ interface ISubscriptionsProps {
   price: number;
   description: string;
   color: "primary";
-  onClick?: () => void;
+  onClick: any;
   className: string;
-  usersMax: number;
+  maxUsers: number;
+  users: number;
 }
 
 function SubscriptionRoom(props: ISubscriptionsProps) {
@@ -30,15 +31,24 @@ function SubscriptionRoom(props: ISubscriptionsProps) {
         <div className={bemElement("logo")}></div>
         <div className={bemElement("info-container")}>
           <h2>{props.label}</h2>
-          <p>{props.usersMax} Users max</p>
+          <p>
+            {props.users}/{props.maxUsers} Users
+          </p>
         </div>
       </div>
       <div className={bemElement("price-container")}>
         <p>
-          <strong>PRICE:</strong>
-          {props.price}$
+          PRICE:
+          <strong>{props.price}</strong>₸
         </p>
-        <Button label={"ENTER"} customSize size={"100%"}></Button>
+        <Button
+          label={"ENTER"}
+          customSize
+          size={"100%"}
+          onClick={() => {
+            props.onClick;
+          }}
+        ></Button>
       </div>
     </div>
   );
