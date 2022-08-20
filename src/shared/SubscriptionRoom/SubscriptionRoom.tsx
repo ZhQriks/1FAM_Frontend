@@ -13,6 +13,7 @@ interface ISubscriptionsProps {
   className: string;
   maxUsers: number;
   users: number;
+  type: string;
 }
 
 function SubscriptionRoom(props: ISubscriptionsProps) {
@@ -25,10 +26,17 @@ function SubscriptionRoom(props: ISubscriptionsProps) {
         }),
         props.className
       )}
-      onClick={props.onClick}
     >
       <div className={bemElement("logo-container")}>
-        <div className={bemElement("logo")}></div>
+        <div className={bemElement("logo")}>
+          <div>
+            {props.type === "spotify" ? (
+              <img src="/logos/spotify.png" alt="spotify" />
+            ) : (
+              <img src="/logos/netflix.jpg" alt="netflix" />
+            )}
+          </div>
+        </div>
         <div className={bemElement("info-container")}>
           <h2>{props.label}</h2>
           <p>
@@ -45,9 +53,7 @@ function SubscriptionRoom(props: ISubscriptionsProps) {
           label={"ENTER"}
           customSize
           size={"100%"}
-          onClick={() => {
-            props.onClick;
-          }}
+          onClick={props.onClick}
         ></Button>
       </div>
     </div>

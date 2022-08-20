@@ -9,9 +9,11 @@ import SectionContainer from "../../shared/layout/SectionContainer";
 import Button from "../../shared/Button";
 import Subscription from "../../shared/Subscription";
 import { userDecoded } from "../../api/functions";
+import { useNavigate } from "react-router-dom";
 
 export default function IndexPage() {
   const { bemBlock, bemElement } = useBem("IndexPage");
+  const navigate = useNavigate();
   const isAuthorizedUser = useSelector((state) => state.auth.isLoggedIn);
   if (isAuthorizedUser) {
     let user = useSelector((state) => state.auth.user);
@@ -24,7 +26,7 @@ export default function IndexPage() {
             className={bemElement("about-container-block", { mainBlock: true })}
           >
             <h1>
-              Bro buy subscriptions with us
+              You can buy subscriptions with us
               <br />6 times more profitable
             </h1>
             <p>
@@ -32,7 +34,11 @@ export default function IndexPage() {
               <br />
               buying platform
             </p>
-            <Button label="Buy now" gradient />
+            <Button
+              label="Buy now"
+              gradient
+              onClick={() => navigate("/subscription")}
+            />
           </div>
           <div
             className={bemElement("about-container-block", {
@@ -77,30 +83,32 @@ export default function IndexPage() {
           </h2>
           <div className={bemElement("hot-subscriptions-container")}>
             <Subscription
-              label="Name"
+              label="Netflix"
               price={50}
-              image="bla"
+              image={"/logos/netflix.jpg"}
               priceWithFamily={10}
             ></Subscription>
             <Subscription
-              label="Name"
+              label="Spotify"
               price={50}
-              image="bla"
+              image={"/logos/spotify.png"}
               priceWithFamily={10}
             ></Subscription>
             <Subscription
-              label="Name"
+              label="Spotify"
               price={50}
-              image="bla"
+              image={"/logos/spotify.png"}
               priceWithFamily={10}
             ></Subscription>
             <Subscription
-              label="Name"
+              label="Spotify"
               price={50}
-              image="bla"
+              image={"/logos/spotify.png"}
               priceWithFamily={10}
             ></Subscription>
           </div>
+        </div>
+        <div style={{ marginTop: "30px" }}>
           <Button
             className={bemElement("hot-subscriptions-button")}
             label={"SEE MORE..."}

@@ -41,6 +41,18 @@
     width: 115px;
     height: 115px;
     border-radius: 20px;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 20%;
+    }
   }
   &__price-container {
     font-size: 30px;

@@ -5,6 +5,7 @@ import NotFoundPage from "./NotFoundPage";
 import RegisterPage from "./RegisterPage";
 import SubscriptionsPage from "./SubscriptionsPage/SubscriptionsPage";
 import ProfilePage from "./ProfilePage/ProfilePage";
+import RoomPage from "./RoomPage/RoomPage";
 
 export interface IRouteProps {
   path: string;
@@ -19,7 +20,7 @@ export const ROUTE_SUBSCRIPTION = "subscription";
 export const ROUTE_LOGIN = "login";
 export const ROUTE_REGISTER = "register";
 export const ROUTE_PROFILE = "profile";
-
+export const ROUTE_ROOM = "room";
 export const publicRoutes: IRouteProps[] = [
   {
     path: ROUTE_ROOT,
@@ -45,6 +46,11 @@ export const publicRoutes: IRouteProps[] = [
   {
     path: ROUTE_PROFILE,
     element: <ProfilePage />,
+    isAuthRoute: true,
+  },
+  {
+    path: ROUTE_ROOM,
+    element: <RoomPage />,
     isAuthRoute: true,
   },
 ];

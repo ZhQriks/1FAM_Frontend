@@ -14,10 +14,7 @@ import { useSelector } from "../../../hooks/useSelector";
 import ContentContainer from "../ContentContainer";
 
 import "./Header.scss";
-import { logout } from "../../../redux/auth/actions";
-import { userDecoded } from "../../../api/functions";
 import UserService from "../../../services/user.service";
-import authHeader from "../../../services/auth-header";
 
 export default function Header() {
   const [userBalance, setUserBalance] = React.useState(0);

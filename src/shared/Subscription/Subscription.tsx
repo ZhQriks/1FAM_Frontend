@@ -26,9 +26,9 @@ function Subscription(props: ISubscriptionsProps) {
       onClick={props.onClick}
     >
       <div className={bemElement("subscription-title")}>
-        <div
-          className={bemElement("subscription-title", { circle: true })}
-        ></div>
+        <div className={bemElement("subscription-title", { circle: true })}>
+          <img src={props.image} alt={props.label} />
+        </div>
         {props.label}
       </div>
       <div className={bemElement("subscription-price")}>

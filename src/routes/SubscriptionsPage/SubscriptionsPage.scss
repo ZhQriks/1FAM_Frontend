@@ -7,8 +7,13 @@
     border-radius: 50px;
     padding: 40px 130px;
     margin-top: 70px;
-    h1 {
-      margin-bottom: 70px;
+  }
+  &__room-link {
+    margin-bottom: 50px;
+    font-size: 25px;
+    color: $primary-color;
+    &:hover {
+      cursor: pointer;
     }
   }
   &__subscription-type {
@@ -25,8 +30,10 @@
       text-align: center;
       font-size: 24px;
     }
-    :hover, :focus {
-        cursor: pointer;
+    img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
     }
   }
   &__subscription-image-container {
@@ -54,5 +61,32 @@
   }
   &__rooms-container {
     margin-bottom: 50px;
+  }
+  &__modal {
+    box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(40px);
+    background: #ffffff;
+    width: 45%;
+    height: 50%;
+    margin: 200px auto 0;
+    justify-content: center;
+    border-radius: 20px;
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 450px;
+      margin: 0 auto;
+    }
+  }
+  &__form-container {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    margin: 0 auto;
+  }
+  &__select {
+    padding: 14px 20px;
+    border: 1px solid $pale-color;
+    border-radius: 10px;
   }
 }
